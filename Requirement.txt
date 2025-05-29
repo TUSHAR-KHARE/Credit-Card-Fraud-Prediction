@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 streamlit
 pandas
 scikit-learn
 joblib
+=======
+pandas
+numpy
+scikit-learn
+streamlit
+joblib
+matplotlib
+seaborn
+>>>>>>> master
