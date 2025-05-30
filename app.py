@@ -16,6 +16,23 @@ if uploaded_file is not None:
     # Read uploaded data
     input_df = pd.read_csv(uploaded_file)
 
+    # Drop the 'Class' column if it exists (target column not needed for prediction)
+    if 'Class' in input_df.columns:
+        input_df = input_df.drop(columns=['Class'])
+
+    # Add 'Hour' column derived from 'Time'
+    if 'Time' in input_df.columns:
+        input_df['Hour'] = (input_df['Time'] // 3600) % 24
+
+    # Ensure columns are in the correct order as used during training
+    expected_features = [
+        'Time', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8', 'V9',
+        'V10', 'V11', 'V12', 'V13', 'V14', 'V15', 'V16', 'V17', 'V18',
+        'V19', 'V20', 'V21', 'V22', 'V23', 'V24', 'V25', 'V26', 'V27',
+        'V28', 'Amount', 'Hour'
+    ]
+    input_df = input_df[expected_features]
+
     # Scale features
     scaled_input = scaler.transform(input_df)
 
@@ -32,4 +49,10 @@ if uploaded_file is not None:
     st.write("### Prediction Results")
     st.write(result)
 
-    st.download_button("Download Results as CSV", result.to_csv(index=False), "fraud_results.csv", "text/csv")
+    # Download button
+    st.download_button(
+        label="Download Results as CSV",
+        data=result.to_csv(index=False),
+        file_name="fraud_results.csv",
+        mime="text/csv"
+    )
