@@ -3,11 +3,13 @@
 This app predicts whether a **credit card transaction** is fraudulent or legitimate using a trained machine learning model. Built with Python and deployed via Streamlit for an easy-to-use web interface.
 
 ## 🚀 Features
+
 ✅ Upload or input transaction data
 ✅ Predict fraud with a Logistic Regression model
 ✅ Scales features for accurate prediction
 ✅ Interactive Streamlit UI for user-friendly experience
 ✅ Displays prediction results instantly
+
 
 ## 🛠️ Tech Stack
 
