@@ -1,4 +1,5 @@
 # Credit Card Fraud Prediction 💳❌
+
 ## 📌 Overview
 This app predicts whether a **credit card transaction** is fraudulent or legitimate using a trained machine learning model. Built with Python and deployed via Streamlit for an easy-to-use web interface.
 
